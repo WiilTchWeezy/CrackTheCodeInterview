@@ -6,7 +6,7 @@ namespace CrackTheCodeInterview.ArrayAndStrings
 {
     public class OnePointFive
     {
-        //BIG O O(N) where N is the longest string
+        //BIG O O(N log N) where N is the longest string
         public bool OneOrZeroEditsLeft(string inputA, string inputB)
         {
             if (inputA.Equals(inputB))

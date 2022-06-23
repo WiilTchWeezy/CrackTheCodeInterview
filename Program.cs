@@ -6,10 +6,17 @@ namespace CrackTheCodeInterview
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            OnePointThree three = new OnePointThree();
-            three.ReplaceString("MR John  ");
+            var onePointFive = new OnePointFive();
+
+
+            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pale", "ple"));
+            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pales", "pale"));
+            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pale", "bale"));
+            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pale", "bake"));
+
+            Console.ReadKey();
         }
     }
 }

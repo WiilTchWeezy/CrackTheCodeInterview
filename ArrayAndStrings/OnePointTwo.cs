@@ -7,7 +7,7 @@ namespace CrackTheCodeInterview.ArrayAndStrings
     public class OnePointTwo
     {
 
-        public bool IsPermuation(string a, string b)
+        public bool IsPermutation(string a, string b)
         {
             if (a.Length != b.Length)
                 return false;
@@ -22,17 +22,6 @@ namespace CrackTheCodeInterview.ArrayAndStrings
                 return true;
             else
                 return false;
-        }
-
-        private string Swap(string value, int i, int j)
-        {
-            char temp;
-            char[] valueCharArray = value.ToCharArray();
-            temp = value[i];
-            valueCharArray[i] = valueCharArray[j];
-            valueCharArray[j] = temp;
-            return new String(valueCharArray);
-
         }
     }
 }

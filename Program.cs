@@ -8,13 +8,10 @@ namespace CrackTheCodeInterview
     {
         static void Main()
         {
-            var onePointFive = new OnePointFive();
+            var onePointFive = new OnePointSix();
 
 
-            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pale", "ple"));
-            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pales", "pale"));
-            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pale", "bale"));
-            Console.WriteLine(onePointFive.OneOrZeroEditsLeft("pale", "bake"));
+            Console.WriteLine(onePointFive.CompressString("aabcccccaaa"));
 
             Console.ReadKey();
         }

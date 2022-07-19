@@ -9,20 +9,21 @@ namespace CrackTheCodeInterview
     {
         static void Main()
         {
-            LinkedList<string> linkedList = new LinkedList<string>();
-            linkedList.Insert("A");
-            linkedList.Insert("B");
-            linkedList.Insert("C");
-            linkedList.Insert("D");
-            linkedList.Insert("E");
-            linkedList.Insert("C");
+            MyStack<string> stack = new MyStack<string>(5);
+            stack.Push("A");
+            stack.Push("B");
+            stack.Push("C");
+            stack.Push("D");
+            stack.Push("E");
 
-            Console.WriteLine(linkedList);
+            Console.WriteLine(stack);
+            
+            Console.WriteLine(stack.Pop());
 
-            TwoPointEight twoPointSix = new TwoPointEight();
-            var result = twoPointSix.ReturnCircularNode(linkedList);
-            Console.WriteLine("*********");
-            Console.WriteLine(result);
+            Console.WriteLine("*************************");
+
+
+
             Console.ReadKey();
         }
     }

@@ -38,6 +38,16 @@ namespace CrackTheCodeInterview.DataStructures
             }
         }
 
+        public T Peek()
+        {
+            if (_front == _end + 1)
+                throw new Exception("Queue is empty");
+            else
+            {
+                return _elements[_front];
+            }
+        }
+
         public override string ToString()
         {
             var sb = new StringBuilder();

@@ -10,22 +10,33 @@ namespace CrackTheCodeInterview
     {
         static void Main()
         {
-            ThreePointSix threePointSix = new ThreePointSix();
+            MyGraph graph = new MyGraph();
 
-            threePointSix.Enqueue(new Dog { Name = "Dog 1" });
-            threePointSix.Enqueue(new Dog { Name = "Dog 2" });
-            threePointSix.Enqueue(new Dog { Name = "Dog 3" });
-            threePointSix.Enqueue(new Dog { Name = "Dog 4" });
-            threePointSix.Enqueue(new Cat { Name = "Cat 1" });
-            threePointSix.Enqueue(new Cat { Name = "Cat 2" });
-            threePointSix.Enqueue(new Cat { Name = "Cat 3" });
-            threePointSix.Enqueue(new Cat { Name = "Cat 4" });
-            threePointSix.Enqueue(new Cat { Name = "Cat 5" });
-            threePointSix.Enqueue(new Cat { Name = "Cat 6" });
+            GraphNode node0 = new GraphNode("0");
+            GraphNode node1 = new GraphNode("1");
+            GraphNode node2 = new GraphNode("2");
+            GraphNode node3 = new GraphNode("3");
+            GraphNode node4 = new GraphNode("4");
+            GraphNode node5 = new GraphNode("5");
+            GraphNode node6 = new GraphNode("6");
+            node1.Childrens.Add(node2);
+            node2.Childrens.Add(node3);
+            node2.Childrens.Add(node0);
+            node3.Childrens.Add(node2);
+            node0.Childrens.Add(node1);
 
-            Console.WriteLine(threePointSix.Dequeue());
-            Console.WriteLine(threePointSix.Dequeue<Cat>());
-            Console.WriteLine(threePointSix.Dequeue());
+            node5.Childrens.Add(node4);
+            node4.Childrens.Add(node6);
+            node6.Childrens.Add(node5);
+
+            graph.Nodes.Add(node0);
+            graph.Nodes.Add(node1);
+            graph.Nodes.Add(node2);
+            graph.Nodes.Add(node3);
+            graph.Nodes.Add(node4);
+            graph.Nodes.Add(node5);
+            graph.Nodes.Add(node6);
+            Console.WriteLine(graph);
             Console.ReadKey();
         }
     }

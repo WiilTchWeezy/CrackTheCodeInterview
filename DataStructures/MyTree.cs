@@ -8,25 +8,17 @@ namespace CrackTheCodeInterview.DataStructures
     {
         public TreeNode Root { get; set; }
 
-        public override string ToString()
+        public void DeepFirstSearch(TreeNode root)
         {
-            var sb = new StringBuilder();
-            if(Root != null)
-            {
-                sb.Append(DeepFirstSearch(this.Root));
-            }
-            return sb.ToString();
-        }
-
-        private string DeepFirstSearch (TreeNode root)
-        {
-            if (root == null) return string.Empty;
+            if (root == null) return;
             foreach (var item in root.Children)
             {
-                return DeepFirstSearch(item);
+                DeepFirstSearch(item);
             }
-            return string.Empty;
+            Console.WriteLine(root.Value);
         }
+
+
     }
 
     public class TreeNode
@@ -34,6 +26,8 @@ namespace CrackTheCodeInterview.DataStructures
         public string Value { get; set; }
 
         public List<TreeNode> Children { get; set; }
+
+        public bool IsFull { get { return Children.Count == 2; } }
 
         public TreeNode(string value)
         {

@@ -35,6 +35,8 @@ namespace CrackTheCodeInterview.DataStructures
 
         public List<GraphNode> Childrens { get; set; }
 
+        public bool Touched { get; set; }
+
         public GraphNode()
         {
             Childrens = new List<GraphNode>();

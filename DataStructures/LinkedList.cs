@@ -124,7 +124,7 @@ namespace CrackTheCodeInterview.DataStructures
             StringBuilder sb = new StringBuilder();
             while (currentNode != null)
             {
-                sb.AppendLine(currentNode.ToString());
+                sb.Append(currentNode.ToString() + " => ");
                 currentNode = currentNode.Next;
             }
             return sb.ToString();

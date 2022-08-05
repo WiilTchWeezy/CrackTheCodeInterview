@@ -59,11 +59,22 @@ namespace CrackTheCodeInterview
 
 
             Console.WriteLine("*********");
-            int[] elements = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+            int[] elements = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
 
             MyBinaryTree myBinaryTree = new MyBinaryTree();
             myBinaryTree = myBinaryTree.CreateFromElements(elements);
             myBinaryTree.inOrder(myBinaryTree.Root);
+
+            FourPointThree fourPointThree = new FourPointThree();
+            var lists = fourPointThree.CreateALinkedList(myBinaryTree);
+            foreach (var item in lists)
+            {
+                Console.WriteLine("*********");
+                Console.WriteLine(item);
+            }
+
+            FourPointFour fourPointFour = new FourPointFour();
+            Console.WriteLine("Is Balanced : " + fourPointFour.IsBalanced(myBinaryTree));
 
             Console.ReadKey();
         }

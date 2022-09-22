@@ -33,5 +33,21 @@ namespace CrackTheCodeInterview
             }
             return true;
         }
+
+        //Same Solution that i got, but instead is using a bool[] and i was using a Dictionary
+        public static bool HasUniqueCharsBookSolution(string value)
+        {
+            if (value.Length > 128)
+                return false;
+            bool[] char_set = new bool[128];
+            for (int i = 0; i < value.Length; i++)
+            {
+                int val = value[i];
+                if (char_set[val])
+                    return false;
+                char_set[val] = true;
+            }
+            return true;
+        }
     }
 }

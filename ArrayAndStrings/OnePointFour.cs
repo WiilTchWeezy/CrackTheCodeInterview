@@ -68,4 +68,85 @@ namespace CrackTheCodeInterview.ArrayAndStrings
             return response;
         }
     }
+
+    public class OnePointFourBookSolution
+    {
+        #region Solution1
+        //BIG O => O(N)
+        public bool IsPermuationOfPalindrome(string phrase)
+        {
+            int[] table = BuildCharFrequencyTable(phrase);
+            return CheckMaxOneOdd(table);
+        }
+
+        //Check if in the table have more that one Odd for char frequency
+        bool CheckMaxOneOdd(int[] table)
+        {
+            bool foundOdd = false;
+            foreach (int count in table)
+            {
+                if (count % 2 == 1)
+                {
+                    if (foundOdd)
+                        return false;
+                    else
+                        foundOdd = true;
+                }
+            }
+            return true;
+        }
+
+        //fixing the char values to fit on 0 at 26 to create a table that represents a-z
+        int MapCharToInt(char c)
+        {
+            int a = 'a';
+            int z = 'z';
+            int val = c;
+            if (a <= val && val <= z)
+            {
+                return val - 96;
+            }
+            return -1;
+        }
+
+        //Count how many times characters we have in a string
+        private int[] BuildCharFrequencyTable(string phrase)
+        {
+            int[] table = new int[MapCharToInt('z') - MapCharToInt('a') + 1];
+            foreach (var item in phrase)
+            {
+                int x = MapCharToInt(item);
+                if (x != -1)
+                    table[x]++;
+            }
+            return table;
+        }
+        #endregion
+
+        //Count as we go
+        #region Solution2
+        public bool IsPermuationOfPalindrome2(string phrase)
+        {
+            int countOdd = 0;
+            int[] table = new int[MapCharToInt('z') - MapCharToInt('a') + 1];
+            foreach (var item in phrase)
+            {
+                int x = MapCharToInt(item);
+                if (x != -1)
+                {
+                    table[x]++;
+                    if (table[x] % 2 == 1)
+                    {
+                        countOdd++;
+                    }
+                    else
+                    {
+                        countOdd--;
+                    }
+                }
+            }
+            return countOdd <= 1;
+        } 
+        #endregion
+    }
 }

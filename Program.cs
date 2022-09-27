@@ -13,8 +13,8 @@ namespace CrackTheCodeInterview
     {
         static void Main()
         {
-            FivePointOne fivePointOne = new FivePointOne();
-            Console.WriteLine(fivePointOne.BitInsertion("10000000000", "10011", 2, 6));
+            OnePointFourBookSolution onePointFourBookSolution = new OnePointFourBookSolution();
+            onePointFourBookSolution.IsPermuationOfPalindrome("tarcisio");
             Console.ReadKey();
         }
     }

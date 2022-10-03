@@ -28,5 +28,30 @@ namespace CrackTheCodeInterview.LinkedLists
             }
             return list;
         }
+
+
+        #region BookSolution
+        //BIG O O(N²) - Percorrendo a lista duas vezes por item para achar duplicados. (Sem usar buffer)
+        public void DeleteDuplicates(DataStructures.LinkedList<int> list)
+        {
+            Node<int> currentNode = list.Head;
+            while (currentNode != null)
+            {
+                Node<int> runner = currentNode;
+                while (runner.Next != null)
+                {
+                    if (runner.Next.Data == currentNode.Data)
+                    {
+                        runner.Next = runner.Next.Next;
+                    }
+                    else
+                    {
+                        runner = runner.Next;
+                    }
+                }
+                currentNode = currentNode.Next;
+            }
+        } 
+        #endregion
     }
 }

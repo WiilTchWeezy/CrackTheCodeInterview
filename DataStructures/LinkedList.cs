@@ -158,6 +158,11 @@ namespace CrackTheCodeInterview.DataStructures
             Data = data;
         }
 
+        public Node()
+        {
+
+        }
+
         public override string ToString()
         {
             return Data.ToString();

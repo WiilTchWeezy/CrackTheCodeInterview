@@ -6,16 +6,58 @@ namespace CrackTheCodeInterview.LinkedLists
 {
     public class TwoPointSeven
     {
-        public bool IsIntersection<T>(LinkedList<T> listOne, LinkedList<T> listTwo)
+        public Node<int> IsIntersection(Node<int> listOne, Node<int> listTwo)
         {
-            Node<T> nodeOne = listOne.Head;
-            Node<T> nodeTwo = listTwo.Head;
-            while(nodeOne != null && nodeTwo != null)
+            if (listOne == null || listTwo == null) return null;
+
+            TailAndSize nodeOneResult = GetTailAndSize(listOne);
+            TailAndSize nodeTwoResult = GetTailAndSize(listTwo);
+
+            if (nodeOneResult.Tail != nodeTwoResult.Tail)
+                return null;
+
+            Node<int> shorter = nodeOneResult.Size < nodeTwoResult.Size ? listOne : listTwo;
+            Node<int> longer = nodeOneResult.Size < nodeTwoResult.Size ? listTwo : listOne;
+
+            longer = GetKthNode(longer, Math.Abs(nodeOneResult.Size - nodeTwoResult.Size));
+
+            while(shorter != longer)
             {
-                if (nodeOne.Data.Equals(nodeTwo.Data))
-                    return true;
+                shorter = shorter.Next;
+                longer = longer.Next;
             }
-            return false;
+            return longer;
         }
+
+        TailAndSize GetTailAndSize(Node<int> node)
+        {
+            if (node == null) return null;
+
+            int size = 1;
+            Node<int> current = node;
+            while(current.Next != null)
+            {
+                size++;
+                current = current.Next;
+            }
+            return new TailAndSize { Size = size, Tail = current };
+        }
+
+        Node<int> GetKthNode(Node<int> head, int k)
+        {
+            Node<int> current = head;
+            while(k>0 && current != null)
+            {
+                current = current.Next;
+                k--;
+            }
+            return current;
+        }
+    }
+
+    public class TailAndSize
+    {
+        public Node<int> Tail { get; set; }
+        public int Size { get; set; }
     }
 }

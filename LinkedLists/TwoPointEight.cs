@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrackTheCodeInterview.DataStructures;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -25,5 +26,35 @@ namespace CrackTheCodeInterview.LinkedLists
 
             return circularNode.Data;
         }
+
+        #region BookSolution
+        public Node<int> FindBeginning(Node<int> head)
+        {
+            Node<int> slow = head;
+            Node<int> fast = head;
+
+            //Finding the meeting point
+            while (fast != null && fast.Next != null)
+            {
+                slow = slow.Next;
+                fast = fast.Next.Next;
+                if (slow == fast)
+                    break;
+            }
+
+            //Cheking for error - No meeting point no loop
+            if (fast == null || fast.Next == null)
+                return null;
+
+            slow = head;
+            while (slow != fast)
+            {
+                slow = slow.Next;
+                fast = fast.Next;
+            }
+
+            return fast;
+        } 
+        #endregion
     }
 }

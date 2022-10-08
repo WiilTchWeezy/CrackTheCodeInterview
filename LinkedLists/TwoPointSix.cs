@@ -88,7 +88,7 @@ namespace CrackTheCodeInterview.LinkedLists
         #region RecursiveSolution
         public bool IsAPalindromeRecursive(Node<int> head)
         {
-            RecursiveResult result = IsAPalindromeRecurse(head, Length(head);
+            RecursiveResult result = IsAPalindromeRecurse(head, Length(head));
             return result.Result;
         }
 

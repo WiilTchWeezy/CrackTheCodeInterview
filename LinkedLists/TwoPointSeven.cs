@@ -6,6 +6,7 @@ namespace CrackTheCodeInterview.LinkedLists
 {
     public class TwoPointSeven
     {
+        // BIG O - O(A+B) A nd B are the lenght for the linkedLists
         public Node<int> IsIntersection(Node<int> listOne, Node<int> listTwo)
         {
             if (listOne == null || listTwo == null) return null;

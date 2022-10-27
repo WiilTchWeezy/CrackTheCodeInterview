@@ -29,5 +29,29 @@ namespace CrackTheCodeInterview.TreesAndGraphs
             }
             return true;
         }
+
+        #region BookSolution
+        public int GetHeight(BinaryNode root)
+        {
+            if (root == null)
+                return -1;
+            int leftHeight = GetHeight(root.Left);
+            if (leftHeight == int.MinValue) return int.MinValue;
+
+            int rightHeight = GetHeight(root.Right);
+            if (rightHeight == int.MinValue) return int.MinValue;
+
+            int heightDiff = leftHeight - rightHeight;
+            if (Math.Abs(heightDiff) > 1)
+                return int.MinValue;
+            else
+                return Math.Max(leftHeight, rightHeight) + 1;
+        }
+
+        public bool IsBalanced(BinaryNode root)
+        {
+            return GetHeight(root) != int.MinValue;
+        } 
+        #endregion
     }
 }

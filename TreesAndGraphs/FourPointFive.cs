@@ -31,5 +31,22 @@ namespace CrackTheCodeInterview.TreesAndGraphs
             }
             return true;
         }
+
+        public bool CheckBTS(BinaryNode root)
+        {
+            return CheckBTS(root, null, null);
+        }
+
+        public bool CheckBTS(BinaryNode n, int? min, int? max)
+        {
+            if (n == null)
+                return true;
+            if ((min != null && Convert.ToInt32(n.Data) < min) || (max != null && Convert.ToInt32(n.Data) > max))
+                return false;
+            if (!CheckBTS(n.Left, min, Convert.ToInt32(n.Data)) || !CheckBTS(n.Right, Convert.ToInt32(n.Data), max))
+                return false;
+
+            return true;
+        }
     }
 }

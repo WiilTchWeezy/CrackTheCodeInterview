@@ -40,6 +40,7 @@ namespace CrackTheCodeInterview.DataStructures
     public class BinaryNode
     {
         public String Data { get; set; }
+        public BinaryNode Parent { get; set; }
         public BinaryNode Left { get; set; }
         public BinaryNode Right { get; set; }
 

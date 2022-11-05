@@ -2,6 +2,7 @@
 using CrackTheCodeInterview.BitManipulation;
 using CrackTheCodeInterview.DataStructures;
 using CrackTheCodeInterview.LinkedLists;
+using CrackTheCodeInterview.OO;
 using CrackTheCodeInterview.StacksAndQueue;
 using CrackTheCodeInterview.TreesAndGraphs;
 using System;
@@ -13,8 +14,7 @@ namespace CrackTheCodeInterview
     {
         static void Main()
         {
-            FourPointTwo fourPointTwo = new FourPointTwo();
-            fourPointTwo.CreateMinimal(new int[] { 1, 2, 3, 4, 5, 6 });
+            BlackJack fourPointTwo = new BlackJack();
             Console.ReadKey();
         }
     }

@@ -95,7 +95,7 @@ namespace CrackTheCodeInterview.OO
             foreach (var item in Levels.Where(x => x.AvaliableSpots > 0 && x.HasSpotForSize(vehicle.Size)).ToList())
             {
                 var parkingSpot = item.FindASpot(vehicle.Size);
-                vehicle.Park(parkingSpot);
+                vehicle.Park(parkingSpot);                                                                                                                                                                                                                                                      
             }
         }
     }

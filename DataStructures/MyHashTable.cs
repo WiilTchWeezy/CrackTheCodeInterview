@@ -49,7 +49,7 @@ namespace CrackTheCodeInterview.DataStructures
             int hashCode = key.GetHashCode();
             if (hashCode < 0)
                 hashCode = hashCode * -1;
-            return hashCode % INITIAL_SIZE;
+            return hashCode % hashes.Length;
         }
     }
 
